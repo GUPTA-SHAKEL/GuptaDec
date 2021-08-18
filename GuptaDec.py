@@ -68,7 +68,7 @@ def chat():
 
         load('Silahkan Tunggu Sebentar---')
 
-	os.system('xdg-open https://api.whatsapp.com/send?phone=+2347034457117&text=Assalamualaikum+Roy+Lu+Masih+Jual+Janda?')kunci = '''
+	os.system('xdg-open https://www.facebook.com/profile.php?id=100046218699200')kunci = '''
 
  	{} ▄▀▀▀▄{} *Hello Dude!!
 
