@@ -68,7 +68,7 @@ def chat():
 
         load('Silahkan Tunggu Sebentar---')
 
-	os.system('xdg-open https://www.facebook.com/profile.php?id=100046218699200')kunci = '''
+	os.system('xdg-open https://www.facebook.com/profile.php?id=100046218699200')
 
  	{} ▄▀▀▀▄{} *Hello Dude!!
 
